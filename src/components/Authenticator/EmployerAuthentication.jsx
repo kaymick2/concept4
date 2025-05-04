@@ -108,6 +108,12 @@ function EmployerAuthentication({ onSignIn }) {
           )}
         </Authenticator>
       </ThemeProvider>
+      <p style={{
+        textAlign: 'center',
+        marginTop: '1rem',
+        color: '#6c757d',
+        fontSize: '0.9rem'
+      }}>If your employer credentials do not work, refresh the page and try again</p>
     </div>
   );
 }

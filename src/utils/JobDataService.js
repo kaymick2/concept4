@@ -90,8 +90,18 @@ export const fetchAllJobs = async (forceRefresh = false) => {
     const data = await response.json();
     const jobsArray = Array.isArray(data.body) ? data.body : [];
     
-    // Update cache
-    jobCache.allJobs = jobsArray;
+    // Add creation date to each job
+    const jobsWithDate = jobsArray.map(job => ({
+      ...job,
+      creation_date: new Date().toLocaleDateString('en-US', {
+        month: '2-digit',
+        day: '2-digit',
+        year: 'numeric'
+      })
+    }));
+    
+      // Update cache
+    jobCache.allJobs = jobsWithDate;
     jobCache.lastFetched = Date.now();
     
     // Notify listeners about the update

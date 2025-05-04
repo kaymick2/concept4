@@ -81,10 +81,23 @@ function REUSites() {
       <div className="container py-4">
         <h1 className="mb-5 bold">Research Opportunities</h1>
 
+        {/* Mobile Filter Section */}
+        <div className="d-md-none mb-4">
+          <div className='filter-container mb-3'>
+            <input
+              type='text'
+              className='form-control'
+              placeholder="Search by REU title..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <FilterControls />
+        </div>
+
         <div className="row gx-5">
-          {/* Filter Sidebar */}
-          <div className='col-md-2'>
-            {/* Search Bar */}
+          {/* Desktop Filter Sidebar */}
+          <div className='col-md-2 d-none d-md-block'>
             <div className='filter-container mb-3'>
               <input
                 type='text'
@@ -94,12 +107,11 @@ function REUSites() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            {/* Filters */}
             <FilterControls />
           </div>
           
           {/* REU Listings */}
-          <div className='col-md-10 ml-md-3'>
+          <div className='col-12 col-md-10 ml-md-3'>
             <div className="list-group mb-4">
               {currentSites.length === 0 ? <p>No REU sites found.</p> : currentSites.map((site) => (
                 <div key={site.id} className="list-group-item job-list-item">

@@ -148,8 +148,8 @@ function Navbar() {
               </div>
             ) : (
               <>
-                <Link to="/auth" className="btn btn-primary me-2">Sign In / Sign Up</Link>
-                <Link to="/employer-auth" className="btn btn-outline-light">Employer</Link>
+                <Link to="/employer-auth" className="btn btn-outline-light me-2">Employer</Link>
+                <Link to="/auth" className="btn btn-primary">Sign In / Sign Up</Link>
               </>
             )}
           </div>

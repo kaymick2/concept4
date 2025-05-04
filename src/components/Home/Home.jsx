@@ -107,14 +107,14 @@ function Home() {
         {/* <hr className="solid" style={{ margin: '15px 0' }} />
         <h2 className="mb-2">Featured Jobs</h2> */}
         <h2 className='featured-jobs-title'>Featured Jobs</h2>
-        <div className='row row-cols-1 row-cols-md-3 g-4'>
+        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4'>
           {featuredJobs.map((job) => (
-            <div className='col-md-4 d-flex' key={job.job_id}>
+            <div className='col d-flex' key={job.job_id}>
               <div className='card featured-job-card w-100'>
                 <div className='card-body d-flex flex-column'>
                   <div className='job-content flex-grow-1'>
-                    <h5 className='card-title'>{job.title}</h5>
-                    <h6 className='card-subtitle mb-2'>
+                    <h5 className='card-title text-break'>{job.title}</h5>
+                    <h6 className='card-subtitle mb-2 text-break'>
                       {job.company_name} - {job.location}
                     </h6>
                     <p className='card-text'>
@@ -122,7 +122,7 @@ function Home() {
                     </p>
                   </div>
                   <div className='mt-auto d-flex gap-2'>
-                    <a href={job.job_posting_url} target='_blank' rel='noopener noreferrer' className='btn-outline-black'>
+                    <a href={job.job_posting_url} target='_blank' rel='noopener noreferrer' className='btn btn-outline-primary w-100'>
                       Apply Now
                     </a>
                   </div>

@@ -8,15 +8,27 @@ function PostJob() {
     companyName: '',
     location: '',
     salaryRange: '',
+    minSalary: 0,
+    maxSalary: 0,
     description: '',
     jobUrl: '',
   });
 
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === 'salaryRange') {
+      const [min, max] = e.target.value.split('-').map(val => parseInt(val.trim()) || 0);
+      setFormData(prev => ({
+        ...prev,
+        salaryRange: e.target.value,
+        minSalary: min,
+        maxSalary: max || min
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -30,12 +42,12 @@ function PostJob() {
       sponsored: "0",
       zip_code: "",
       views: 0,
-      min_salary: parseInt(formData.salaryRange) || 0,
+      min_salary: formData.minSalary,
       pay_period: "YEARLY",
       work_type: "FULL_TIME",
       formatted_work_type: "Full-time",
       applies: "0.0",
-      normalized_salary: parseInt(formData.salaryRange) || 0,
+      normalized_salary: formData.minSalary,
       company_name: formData.companyName,
       original_listed_time: Date.now().toString(),
       fips: "",
@@ -43,7 +55,7 @@ function PostJob() {
       formatted_experience_level: "Entry level",
       description: formData.description,
       job_posting_url: formData.jobUrl || "N/A",
-      max_salary: parseInt(formData.salaryRange) || 120000,
+      max_salary: formData.maxSalary,
       application_type: "OffsiteApply",
       title: formData.jobTitle
     };
@@ -70,6 +82,9 @@ function PostJob() {
 
   return (
     <div className="container mt-5">
+      <br></br>
+      <br></br>
+      <br></br>
       <h2>Post a Job</h2>
       <form onSubmit={handleSubmit}>
         <input

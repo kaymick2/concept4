@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Job Posting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Job Posting</h1>
+    <p>Click the button below to test posting a job:</p>
+    <button id="sendBtn">Send Test Job Data</button>
+    <pre id="result">Results will appear here...</pre>
+
+    <script>
+    const jobData = { 
+        application_url: "google.com", 
+        company_id: "1234567.0", 
+        currency: "USD", 
+        location: "New York, NY", 
+        sponsored: "0", 
+        zip_code: "10001.0", 
+        views: 0, 
+        min_salary: 1, 
+        pay_period: "YEARLY", 
+        work_type: "FULL_TIME", 
+        formatted_work_type: "Full-time", 
+        applies: "0.0", 
+        normalized_salary: 1, 
+        company_name: "Random Zoo", 
+        original_listed_time: "1714000000000.0", 
+        fips: "36061.0", 
+        compensation_type: "BASE_SALARY", 
+        formatted_experience_level: "Entry level", 
+        description: "AaaaAAAAAAA", 
+        job_posting_url: "google.com", 
+        max_salary: 120000, 
+        application_type: "OffsiteApply", 
+        title: "rapper" 
+    }; 
+
+    document.querySelector('#sendBtn').addEventListener('click', () => { 
+        fetch("https://kz4iqk1zg5.execute-api.us-east-2.amazonaws.com/test/writing", { 
+            method: "POST", 
+            headers: { 
+                "Content-Type": "application/json" 
+            }, 
+            body: JSON.stringify({ 
+                body: JSON.stringify(jobData)  // wrap jobData inside a "body" string 
+            }) 
+        }) 
+            .then(res => { 
+                if (!res.ok) throw new Error(`HTTP ${res.status}`); 
+                return res.json(); 
+            }) 
+            .then(data => { 
+                console.log("Success:", data); 
+                document.querySelector('#result').textContent = JSON.stringify(data, null, 2); 
+            }) 
+            .catch(err => { 
+                console.error("Error:", err); 
+                document.querySelector('#result').textContent = "Error: " + err.message; 
+            }); 
+    });
+    </script>
+</body>
+</html>

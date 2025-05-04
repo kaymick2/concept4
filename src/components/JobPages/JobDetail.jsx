@@ -105,7 +105,7 @@ const JobDetail = () => {
               <p><strong>Experience Level:</strong> {job.formatted_experience_level}</p>
             </div>
             <div className="col-md-6">
-              <p><strong>Salary:</strong> {job.currency} {job.min_salary.toLocaleString()} - {job.max_salary.toLocaleString()} {job.pay_period}</p>
+              <p><strong>Salary:</strong> {job.currency} {(job.min_salary || 0).toLocaleString()} - {(job.max_salary || job.min_salary || 0).toLocaleString()} {job.pay_period}</p>
               <p><strong>Views:</strong> {job.views}</p>
             </div>
           </div>

@@ -371,8 +371,9 @@ const FilterControls = () => {
               <label className="label">
                   Salary:
                 </label>
-                <div className='slider-wrapper'>
-                 <div className='salary-slider mb-4'> 
+
+                <div className='salary-slider mb-4'>
+                    <div className='slider-wrapper'>
                         <input 
                             type='range'
                             min='0'
