@@ -1,0 +1,167 @@
+
+/* filter styling */
+.filter-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px;
+    width: 100%;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+.filter-toggle {
+    width: 100%;
+    background: #f5f5f5;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.filter-options {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Job List Item Styling */
+.job-list-item {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.job-list-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Pagination Styles */
+.pagination .page-item.disabled .page-link {
+    pointer-events: none;
+}
+
+.pagination .page-item.active .page-link {
+    font-weight: bold;
+}
+
+.pagination .page-link {
+    cursor: pointer;
+}
+
+.job-list-item {
+    position: relative;
+    padding-right: 40px;
+    padding-top: 10px;
+}
+
+.save-job-icon-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.bookmark-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.job-title {
+    color: #AAB493;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.job-title:hover {
+    color: #aab493;
+}
+
+.salary-slider {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.slider-wrapper {
+    position: relative;
+    height: 40px;
+}
+
+.slider-wrapper input[type="range"] {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    pointer-events: none;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+.slider-wrapper input[type="range"]::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+}
+
+.slider-wrapper input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.slider-min {
+    z-index: 2;
+}
+
+.slider-max {
+    z-index: 3;
+}
+

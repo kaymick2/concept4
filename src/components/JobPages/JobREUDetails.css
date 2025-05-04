@@ -1,0 +1,159 @@
+/* General Container Styles */
+.saved-jobs-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.jobs-list {
+  margin-top: 20px;
+}
+
+.job-item {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-jobs {
+  text-align: center;
+  padding: 40px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  /* font-family: 'Lato', sans-serif; */
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+  border-color: #545b62;
+}
+
+
+/* Job Details Specific */
+.job-title {
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: bold;
+}
+
+.company-name {
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: 400;
+}
+
+.job-description {
+  white-space: pre-line;
+  /* font-family: 'Lato', sans-serif; */
+  font-size: 1rem;
+}
+
+/* Apply Buttons Section */
+.apply-buttons .btn {
+  margin-right: 1rem;
+}
+
+/* REU Specific Styles */
+.reu-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.reu-title {
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.reu-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.reu-card-body {
+  padding: 0;
+}
+
+.reu-institution {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+.reu-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.reu-info-row p {
+  margin-bottom: 0.5rem;
+}
+
+.reu-info-row .col-md-6 {
+  flex: 1;
+  padding: 1rem;
+}
+
+.reu-website a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.reu-website a:hover {
+  background-color: #0056b3;
+}

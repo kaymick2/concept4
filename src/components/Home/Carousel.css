@@ -1,0 +1,47 @@
+/* carousel container on home page */
+.carousel-container {
+  width: 100vw;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0; /* Ensure no margin below the carousel */
+  padding-bottom: 10px; /* Optional, to fine-tune spacing */
+}
+
+/* carousel images */
+.carousel-inner img {
+  object-fit: cover;
+  object-position: center;
+  width: 100vh;
+  height: 100vh;
+}
+
+/* dimming effect on carousel images */
+.carousel-img {
+  filter: brightness(40%);
+  transition: filter 0.5s ease-in-out;
+}
+
+/* Title overlay */
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* Apply Comfortaa font to carousel title */
+.carousel-text h1 {
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 700;
+  font-size: 5rem;
+}
+
+
+
+  
