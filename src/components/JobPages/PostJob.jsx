@@ -49,7 +49,7 @@ function PostJob() {
       applies: "0.0",
       normalized_salary: formData.minSalary,
       company_name: formData.companyName,
-      original_listed_time: Date.now().toString(),
+      original_listed_time: new Date().toISOString(),
       fips: "",
       compensation_type: "BASE_SALARY",
       formatted_experience_level: "Entry level",

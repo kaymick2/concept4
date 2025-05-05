@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '/src/App.css';
 import './Carousel.css';
 import SaveJobButton from '../Profile/SaveJobButton';
@@ -115,7 +116,11 @@ function Home() {
               <div className='card featured-job-card w-100'>
                 <div className='card-body d-flex flex-column'>
                   <div className='job-content flex-grow-1'>
-                    <h5 className='card-title text-break'>{job.title}</h5>
+                    <h5 className='card-title text-break'>
+                      <Link to={`/job/${job.job_id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {job.title}
+                      </Link>
+                    </h5>
                     <h6 className='card-subtitle mb-2 text-break'>
                       {job.company_name} - {job.location}
                     </h6>

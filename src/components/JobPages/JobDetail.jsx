@@ -94,6 +94,9 @@ const JobDetail = () => {
    */
   return (
     <div className="container py-4">
+      <br></br>
+      <br></br>
+      <br></br>
       <h1 className="job-title mb-4">{job.title}</h1>
       <div className="card">
         <div className="card-body">

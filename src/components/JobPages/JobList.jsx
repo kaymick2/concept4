@@ -124,20 +124,39 @@ const JobList = () => {
      * Applies all active filters to the jobs array and returns only the jobs that match all criteria.
      * Each filter is only applied if it has a non-empty value, allowing for flexible filtering.
      */
-    const filteredJobs = jobs.filter(job => 
-        // Location filter - checks if job location includes the selected state code
-        (filters.location.length === 0 || (job.location && filters.location.some((loc) => job.location.includes(loc)))) &&
-        // Company name filter - case-insensitive partial match
-        (filters.company === "" || (job.company_name && job.company_name.toLowerCase().includes(filters.company.toLowerCase()))) &&   
-        // Minimum salary filter - checks if job salary is at least the specified amount
-        (filters.minSalary === "" || (job.min_salary && job.min_salary >= parseFloat(filters.minSalary))) &&
-        // Maximum salary filter - checks if job salary is at most the specified amount
-        (filters.maxSalary === "" || (job.max_salary && job.max_salary <= parseFloat(filters.maxSalary))) &&
-        // Experience level filter - matches required experience level
-        (filters.formatted_experience_level === "" || (job.formatted_experience_level && job.formatted_experience_level.toLowerCase().includes(filters.experience_level.toLowerCase()))) &&
-        // Search query filter - checks if job title includes the search query
-        (searchQuery === "" || job.title?.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
+    // Helper function to validate ISO 8601 timestamp format
+    const isValidISOTimestamp = (timestamp) => {
+        const regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
+        return typeof timestamp === 'string' && regex.test(timestamp);
+    };
+
+    // Filter and sort jobs
+    const filteredJobs = jobs
+        .filter(job => 
+            // Location filter - checks if job location includes the selected state code
+            (filters.location.length === 0 || (job.location && filters.location.some((loc) => job.location.includes(loc)))) &&
+            // Company name filter - case-insensitive partial match
+            (filters.company === "" || (job.company_name && job.company_name.toLowerCase().includes(filters.company.toLowerCase()))) &&   
+            // Minimum salary filter - checks if job salary is at least the specified amount
+            (filters.minSalary === "" || (job.min_salary && job.min_salary >= parseFloat(filters.minSalary))) &&
+            // Maximum salary filter - checks if job salary is at most the specified amount
+            (filters.maxSalary === "" || (job.max_salary && job.max_salary <= parseFloat(filters.maxSalary))) &&
+            // Experience level filter - matches required experience level
+            (filters.formatted_experience_level === "" || (job.formatted_experience_level && job.formatted_experience_level.toLowerCase().includes(filters.experience_level.toLowerCase()))) &&
+            // Search query filter - checks if job title includes the search query
+            (searchQuery === "" || job.title?.toLowerCase().includes(searchQuery.toLowerCase()))
+        )
+        .sort((a, b) => {
+            // Sort by original_listed_time if both jobs have valid ISO timestamps
+            if (isValidISOTimestamp(a.original_listed_time) && isValidISOTimestamp(b.original_listed_time)) {
+                return new Date(b.original_listed_time) - new Date(a.original_listed_time);
+            }
+            // If only one job has a valid timestamp, prioritize it
+            if (isValidISOTimestamp(a.original_listed_time)) return -1;
+            if (isValidISOTimestamp(b.original_listed_time)) return 1;
+            // If neither has a valid timestamp, maintain original order
+            return 0;
+        });
 
     /**
      * Pagination logic
