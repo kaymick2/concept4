@@ -61,10 +61,12 @@ function Home() {
         {/* Overlay title */}
         <div className="carousel-text">
           {/* <h1 className="display-3 text-white fw-bold">jobsearch</h1> */}
-          <h1 className="display-3 text-white fw-bold" style={{ fontFamily: 'Comfortaa' }}>
-  jobsearch
-</h1>
-
+          <h1 className="display-3 text-white fw-bold" style={{ fontFamily: 'Comfortaa', marginBottom: '0.5rem' }}>
+            jobsearch
+          </h1>
+          <h2 className="text-white" style={{ fontFamily: 'Comfortaa', fontSize: '1.5rem', fontWeight: '400' }}>
+            no paywall, no fuss, just jobs
+          </h2>
         </div>
       </div>
 
