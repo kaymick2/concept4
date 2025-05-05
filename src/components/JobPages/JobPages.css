@@ -77,14 +77,27 @@
 /* Pagination Styles */
 .pagination .page-item.disabled .page-link {
     pointer-events: none;
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #dee2e6;
 }
 
 .pagination .page-item.active .page-link {
     font-weight: bold;
+    color: #fff;
+    background-color: #AAB493;
+    border-color: #AAB493;
 }
 
 .pagination .page-link {
     cursor: pointer;
+    color: #AAB493;
+}
+
+.pagination .page-link:hover {
+    color: #fff;
+    background-color: #AAB493;
+    border-color: #AAB493;
 }
 
 .job-list-item {

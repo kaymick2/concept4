@@ -2,7 +2,7 @@
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb'
 import { DynamoDBDocumentClient, UpdateCommand } from '@aws-sdk/lib-dynamodb'
-import { fetchAuthSession } from '@aws-amplify/auth' // ✅ required to get credentials
+import { fetchAuthSession } from '@aws-amplify/auth' // Required to get credentials
 import awsconfig from '../amplify-config.js'
 
 const JOBS_TABLE = 'wsgiPostingsSlimFiltered' // or nsf_reusites if dynamic

@@ -26,17 +26,20 @@ function Navbar() {
       fetchUserAttributes()
         .then(attributes => {
           setUserAttributes(attributes);
-          return getProfilePictureUrl(user.userId);
+          return getProfilePictureUrl(user.userId)
+            .catch(err => {
+              if (err.message?.includes('No profile picture found')) {
+                console.warn('No profile picture set');
+                return null;
+              }
+              throw err;
+            });
         })
         .then(url => {
-          setProfilePicUrl(url);
+          setProfilePicUrl(url || ''); // Set empty string if no URL
         })
         .catch(err => {
-          if (err.message?.includes('No profile picture found')) {
-            console.warn('No profile picture set');
-          } else {
-            console.error('Failed to fetch user data:', err);
-          }
+          console.error('Failed to fetch user data:', err);
         });
     }
   }, [user]);

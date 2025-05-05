@@ -57,6 +57,14 @@ function Home() {
           <Carousel.Item>
             <img className="d-block w-100 carousel-img" src="/assets/computer.jpg" alt="Third slide" />
           </Carousel.Item>
+          {/* Fourth slide - IMG_6204 image */}
+          <Carousel.Item>
+            <img className="d-block w-100 carousel-img" src="/assets/IMG_6204.JPG" alt="Fourth slide" />
+          </Carousel.Item>
+          {/* Fifth slide - Z image */}
+          <Carousel.Item>
+            <img className="d-block w-100 carousel-img" src="/assets/z.jpg" alt="Fifth slide" />
+          </Carousel.Item>
         </Carousel>
 
         {/* Overlay title */}
@@ -116,11 +124,9 @@ function Home() {
               <div className='card featured-job-card w-100'>
                 <div className='card-body d-flex flex-column'>
                   <div className='job-content flex-grow-1'>
-                    <h5 className='card-title text-break'>
-                      <Link to={`/job/${job.job_id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        {job.title}
-                      </Link>
-                    </h5>
+                    <Link to={`/job/${job.job_id}`} className='text-decoration-none' style={{ color: '#AAB493' }}>
+                      <h5 className='card-title text-break'>{job.title}</h5>
+                    </Link>
                     <h6 className='card-subtitle mb-2 text-break'>
                       {job.company_name} - {job.location}
                     </h6>
@@ -129,7 +135,7 @@ function Home() {
                     </p>
                   </div>
                   <div className='mt-auto d-flex gap-2'>
-                    <a href={job.job_posting_url} target='_blank' rel='noopener noreferrer' className='btn btn-outline-primary w-100'>
+                    <a href={job.job_posting_url} target='_blank' rel='noopener noreferrer' className='btn w-100' style={{ backgroundColor: '#AAB493', color: '#fff', border: 'none' }}>
                       Apply Now
                     </a>
                   </div>

@@ -2,7 +2,7 @@
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb'
 import { DynamoDBDocumentClient, PutCommand, QueryCommand, DeleteCommand, GetCommand } from '@aws-sdk/lib-dynamodb'
-import { fetchAuthSession } from '@aws-amplify/auth' // ✅ correct modular import
+import { fetchAuthSession } from '@aws-amplify/auth' // Correct modular import
 import awsconfig from '../amplify-config.js'
 
 const SAVED_JOBS_TABLE = 'savedjobsUSER'

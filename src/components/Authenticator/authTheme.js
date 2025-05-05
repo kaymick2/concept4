@@ -6,11 +6,11 @@ const theme = {
       colors: {
         brand: {
           primary: {
-            10: '#e6f0ff',
-            40: '#4d94ff',
-            60: '#0066ff',
-            80: '#0052cc',
-            100: '#003d99'
+            10: '#f2f4ef',
+            40: '#c5cdb8',
+            60: '#AAB493',
+            80: '#8b9176',
+            100: '#6c7359'
           },
           secondary: {
             60: '#6c757d',
@@ -23,12 +23,12 @@ const theme = {
         },
         border: {
           primary: '#dee2e6',
-          focus: '#0066ff'
+          focus: '{colors.brand.primary.60}'
         },
         font: {
           primary: '#212529',
           secondary: '#6c757d',
-          interactive: '#0066ff'
+          interactive: '{colors.brand.primary.60}'
         }
       },
 

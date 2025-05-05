@@ -51,10 +51,20 @@
     font-weight: 400;
   }
   
-  /* log out button */
+  /* Button styles */
   .btn-danger {
     background-color: #e60000;
     border-color: #e60000;
+  }
+
+  .btn-primary {
+    background-color: #AAB493 !important;
+    border-color: #AAB493 !important;
+  }
+
+  .btn-primary:hover {
+    background-color: #99a382 !important;
+    border-color: #99a382 !important;
   }
   
   .initials-circle {

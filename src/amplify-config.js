@@ -19,12 +19,12 @@ const awsconfig = {
   aws_user_files_s3_bucket: "userprofilepics-informatic",
   aws_user_files_s3_bucket_region: "us-east-2",
 
-  // ✅ Add this section
+  // Add this section
   API: {
     REST: {
       endpoints: [
         {
-          name: "jobAPI", // 👈 must match what you use in the code
+          name: "jobAPI", // Must match what you use in the code
           endpoint: "https://kz4iqk1zg5.execute-api.us-east-2.amazonaws.com/test",
           region: "us-east-2"
         }

@@ -20,7 +20,7 @@ function Authentication({ onSignIn }) {
   }, []);
 
   const handleSignInSuccess = (user) => {
-    console.log('✅ User login successful');
+    console.log('User login successful');
     if (onSignIn) onSignIn(user);
     navigate('/jobs');
   };

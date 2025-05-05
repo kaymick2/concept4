@@ -7,10 +7,10 @@ import { Amplify } from 'aws-amplify';
 import awsconfig from './amplify-config.js'
 import { preloadJobData } from './utils/JobDataService.js'
 
-// ✅ Configure Amplify *once* here
+// Configure Amplify *once* here
 Amplify.configure(awsconfig)
 
-// ✅ Preload job data
+// Preload job data
 preloadJobData()
 
 createRoot(document.getElementById('root')).render(

@@ -65,7 +65,7 @@ function EditProfile() {
         })
         .catch(err => {
           // Log any errors that occur during attribute fetching
-          console.error('❌ Failed to fetch attributes:', err);
+          console.error('Failed to fetch attributes:', err);
           setError('Failed to load user information. Please try again.');
         });
     }
@@ -123,7 +123,7 @@ function EditProfile() {
         navigate('/profile');
       }, 2000);
     } catch (err) {
-      console.error('❌ Failed to update attributes:', err);
+      console.error('Failed to update attributes:', err);
       setError('Failed to update profile. Please try again.');
     } finally {
       setIsSubmitting(false);

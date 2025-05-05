@@ -1,41 +1,61 @@
-# Informatic - Job Search Platform
+# jobsearch - Modern Job Search Platform
 
 ## Overview
 
-Informatic is a modern job search platform built with React and AWS services, designed to connect job seekers with employers in the technology sector. The platform implements separate authentication systems for regular users and employers, comprehensive job posting capabilities, and advanced profile management features.
+jobsearch is a modern, user-friendly job search platform built with React and AWS services. It focuses on providing a seamless experience for job seekers with features like job saving, profile management, and direct application links.
 
 ## Core Features
 
-### Job Seekers
-- Secure user authentication through AWS Cognito
-- Comprehensive profile creation and management system
-- Advanced job search functionality with filtering capabilities
-- Personalized job listing management with save feature
+### For Job Seekers
+- Secure authentication through AWS Cognito
+- Personalized user profiles with customizable information
+- Job search functionality with detailed job listings
+- Save interesting jobs for later review
 - Cloud-based profile picture storage using AWS S3
-- Dedicated access to Research Experience for Undergraduates (REU) opportunities
+- Direct application links to job postings
+- Mobile-responsive design with modern UI
 
-### Employers
-- Dedicated employer authentication system
-- Complete job posting management interface
-- Customizable company profile system
-- Integrated applicant tracking functionality
-- Enhanced signup process with additional company attributes
+### User Interface
+- Clean, modern design with Comfortaa font styling
+- Responsive image carousel showcasing platform features
+- Intuitive navigation and user-friendly layout
+- Consistent color scheme with signature green accent (#AAB493)
 
-## Technical Architecture
+### Job Listings
+- Featured jobs section on homepage
+- Detailed job descriptions with company information
+- Job location and company details
+- Direct links to original job postings
+- Save job functionality for registered users
+
+## Technical Stack
 
 ### Frontend Technologies
-- React 19.0.0: Core UI framework
-- React Router DOM 7.3.0: Client-side routing
-- React Bootstrap 2.10.9: UI component library
-- AWS Amplify UI React 6.9.3: AWS service integration
-- Bootstrap 5.3.3: Responsive styling framework
-- Vite 6.2.0: Build and development tooling
+- React: Core UI framework
+- React Router DOM: Client-side routing
+- React Bootstrap: UI component library
+- AWS Amplify UI React: AWS service integration
+- Vite: Build and development tooling
 
 ### Backend Services
-- AWS Cognito: User authentication and authorization
-- Amazon S3: Secure file storage and management
-- AWS Amplify: Backend service integration
-- DynamoDB: NoSQL database for scalable data storage
+- AWS Cognito: User authentication
+- Amazon S3: Profile picture storage
+- AWS Amplify: Backend integration
+- DynamoDB: Data storage
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Authenticator/    # Authentication components
+│   ├── Home/             # Homepage and navigation
+│   ├── JobPages/         # Job listing components
+│   └── Profile/          # User profile management
+├── context/              # React context providers
+├── utils/                # Utility functions and services
+└── assets/              # Static assets and images
+```
 
 ## Development Setup
 
@@ -46,82 +66,55 @@ Informatic is a modern job search platform built with React and AWS services, de
 
 ### Installation
 1. Clone the repository
-2. Install project dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
-3. Configure AWS Amplify:
-   - Regular user configuration: `src/amplify-config.js`
-   - Employer configuration: `src/amplify-employer-config.js`
-
-### Development Workflow
-- Start development server:
-  ```bash
-  npm run dev
-  ```
-- Build production version:
-  ```bash
-  npm run build
-  ```
-
-## Project Structure
-
-```
-concept4/
-├── src/
-│   ├── components/
-│   │   ├── Authenticator/    # Authentication components
-│   │   ├── Home/             # Home page components
-│   │   ├── JobPages/         # Job-related components
-│   │   └── Profile/          # User profile components
-│   ├── context/              # React context providers
-│   ├── utils/                # Utility functions
-│   ├── amplify-config.js     # AWS configuration for users
-│   └── amplify-employer-config.js # AWS configuration for employers
-├── public/                   # Static assets
-└── package.json             # Project dependencies
-```
-
-## Authentication Implementation
-
-### User Authentication
-- Email-based registration and verification
-- Password requirements: Minimum 8 characters
-- Multi-factor authentication: Disabled
-- Required attributes: Email address
-
-### Employer Authentication
-- Enhanced registration process
-- Required attributes:
-  - Email address
-  - Physical address
-  - Company name (Nickname)
-- Separate authentication pool for enhanced security
-
-## AWS Configuration
-
-### Cognito User Pools
-- Regular Users: us-east-2_JT1Zv1m5E
-- Employers: us-east-2_7LkBrXGsh
-
-### S3 Configuration
-- Bucket: userprofilepics-informatic
-- Region: us-east-2
-
-## Development Tools
+3. Start development server:
+   ```bash
+   npm run dev
+   ```
 
 ### Available Scripts
 - `npm run dev`: Launch development server
 - `npm run build`: Create production build
 - `npm run preview`: Preview production build
-- `npm run lint`: Execute ESLint checks
 
-## Contributing Guidelines
+## Features Implementation
+
+### Job Data Service
+- Cached job data for improved performance
+- Random selection of featured jobs
+- Error handling for failed API requests
+
+### User Interface
+- Responsive carousel with overlay text
+- Custom styling with Comfortaa font
+- Consistent color scheme throughout
+- Mobile-first responsive design
+
+### Profile Management
+- Profile picture upload capability
+- Saved jobs management
+- User authentication state management
+
+## AWS Configuration
+
+### Cognito Setup
+- User authentication pool
+- Required attributes: Email address
+- Password requirements: Minimum 8 characters
+
+### S3 Configuration
+- Bucket: userprofilepics-informatic
+- Region: us-east-2
+
+## Contributing
 
 Contributors should:
-- Adhere to existing code style conventions
-- Submit pull requests for new features or bug fixes
-- Include appropriate documentation updates
+- Follow existing code style and conventions
+- Test changes thoroughly before submitting
+- Update documentation as needed
 
 ## License
 

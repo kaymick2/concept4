@@ -36,12 +36,12 @@ function EmployerAuthentication({ onSignIn }) {
                   password: formData.password
                 });
 
-                console.log('✅ Employer login successful');
+                console.log('Employer login successful');
                 if (onSignIn) onSignIn(user);
                 navigate('/post-job');
                 return user;
               } catch (err) {
-                console.error('❌ Employer login failed:', err);
+                console.error('Employer login failed:', err);
                 throw err;
               }
             }

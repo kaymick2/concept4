@@ -229,8 +229,8 @@ const JobList = () => {
                                         {formatSalary(parseFloat(job.min_salary), job.currency)} - {formatSalary(parseFloat(job.max_salary), job.currency)} {job.pay_period}
                                     </p>
                                     <p>{job.description.substring(0, 200)}...</p>
-                                    <div className="d-flex gap-2 mt-2">
-                                        <a href={job.job_posting_url} target="_blank" rel="noopener noreferrer" className="btn-outline-black">
+                                    <div className="d-flex justify-content-center mt-2">
+                                        <a href={job.job_posting_url} target="_blank" rel="noopener noreferrer" className="btn-outline-black w-50">
                                             Apply Now
                                         </a>
                                     </div>
