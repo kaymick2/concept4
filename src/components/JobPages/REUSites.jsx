@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import './JobPages.css'; // Import the external CSS file
-import '../../App.css'
+import '../../App.css';
+import SaveJobButton from '../Profile/SaveJobButton';
+import { useAuthenticator } from '@aws-amplify/ui-react';
+import { getSavedJobs } from '../../utils/savedJobsDB';
 
 const FilterContext = createContext();
 
@@ -10,6 +13,8 @@ function REUSites() {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalSites, setTotalSites] = useState(0);
+  const { user } = useAuthenticator((context) => [context.user]);
+  const [savedSiteIds, setSavedSiteIds] = useState(new Set());
   const sitesPerPage = 10;
   const pagesPerSet = 10;
   const currentSet = Math.floor((currentPage - 1) / pagesPerSet);
@@ -22,6 +27,22 @@ function REUSites() {
     company: "", 
     discipline: "" 
   });
+
+  useEffect(() => {
+    const fetchSavedSites = async () => {
+      if (user) {
+        try {
+          const savedSites = await getSavedJobs(user.username);
+          const savedIds = new Set(savedSites.map(site => site.jobID));
+          setSavedSiteIds(savedIds);
+        } catch (err) {
+          console.error('Error fetching saved sites:', err);
+        }
+      }
+    };
+    
+    fetchSavedSites();
+  }, [user]);
 
   useEffect(() => { 
     const fetchSites = async () => {
@@ -124,6 +145,16 @@ function REUSites() {
                   <p><strong>Department:</strong> {site.department || 'Not specified'}</p>
                   <p><strong>Discipline:</strong> {site.discipline || 'Not specified'}</p>
                   <p><strong>Contact:</strong> {site.contact_name || 'Not specified'} | <a href={`mailto:${site.contact_email}`}>{site.contact_email || 'Not available'}</a></p>
+                  <div className="mt-3">
+                    <SaveJobButton jobData={{
+                      job_id: site.id,
+                      title: site.title,
+                      company_name: site.institution,
+                      location: `${site.city}, ${site.state}`,
+                      description: `${site.discipline} - ${site.department}`,
+                      job_posting_url: site.url
+                    }} />
+                  </div>
                 </div>
               ))}
             </div>
